@@ -151,9 +151,7 @@ sc<span style=color:#f92672>.</span>stop()
 	<span style=color:#f92672>}</span>
   <span style=color:#f92672>}</span>	
 </code></pre></div><p>And the cli options:</p>
-<p><code>spark-submit \
---class name.CountIps \
---master yarn-client \ target/countIps-1.0.jar /logdata/*</code></p>
+<p><code>spark-submit \ --class name.CountIps \ --master yarn-client \ target/countIps-1.0.jar /logdata/*</code></p>
 <p>While working through the Scala example, I learned something that was interesting to me as someone who is new to Scala, coming from a Python background, related to var/val assignment.</p>
 <p>Scala has several basic language variable <a href=http://www.scala-lang.org/files/archive/spec/2.11/04-basic-declarations-and-definitions.html>declarations</a>:</p>
 <pre><code>Dcl      ::=  ‘val’ ValDcl
@@ -166,7 +164,7 @@ sc<span style=color:#f92672>.</span>stop()
 <p>Spark RDDs by nature are <a href=https://spark.apache.org/docs/0.8.1/api/core/org/apache/spark/rdd/RDD.html>immutable</a>, and documentation and best practices have them assigned to <code>val</code> types.</p>
 <p>So it surprised me to see some documentation in a recent Spark class I took assigning RDDs to <code>vars</code> instead of <code>vals</code> within an app that was not reusing RDDs. And inherently, because of the way Spark internals are structured, it doesn&rsquo;t make sense, or at least I haven&rsquo;t yet come across a use case, where you need to change the assignment of one RDD when you can just create a new one through a transformation.</p>
 <p>I looked into why you might ostensibly use var over val within the context of Spark&rsquo;s immutable RDD paragigm, and didn&rsquo;t find anything specific, until I saw this note in Advanced Analytics with Spark:</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/varval.png alt=image></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/varval.png alt=image></p>
 <p>So, basically it&rsquo;s ok when you&rsquo;re writing throw-away commands in the REPL where it doesn&rsquo;t make much of a difference.</p>
 <p>Digging through <a href=https://community.hortonworks.com/questions/18708/are-spark-rdd-really-mutable.html>the Spark documentation</a>, as well as <a href="https://mail-archives.apache.org/mod_mbox/spark-user/201602.mbox/%3CCALte62wXf5jSQUpzsr=zYayw0D-L5+tPVONE7fqsdnC=Ne59cQ@mail.gmail.com%3E">the Spark mailing list</a> (an excellent resource for learning Spark) has led me to believe that using var in Spark is an anti-pattern in Scala apps.</p>
 <blockquote>

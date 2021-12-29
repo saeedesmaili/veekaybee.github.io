@@ -56,7 +56,7 @@ Aug 8 2015
 </i>
 </p>
 <content>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/hn.png alt=hn></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/hn.png alt=hn></p>
 <p>###<strong>TL;DR: All the code for this post <a href=https://github.com/veekaybee/markovhn>is here</a>.</strong></p>
 <p>One of my favorite hobbies is making up fake Hacker News headlines because they&rsquo;re just so easy to parody (i.e. they follow a predictable pattern using most of the same topics and wording.)</p>
 <ul>
@@ -86,8 +86,8 @@ Aug 8 2015
 </ul>
 <p>and, probably my personal absolute favorite, the <a href=http://benedictcumberbatchgenerator.tumblr.com/>Benedict Cumberbatch name generator</a>. Ok, maybe this one&rsquo;s not strictly a Markov chain project, but I&rsquo;ll use any excuse I have to link to it.</p>
 <p>There is something about fake Markov chain-generated Hacker News headlines that just hits the spot for me as a writer, data scientist, and tech news reader:</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/venn.png alt=venn></p>
-<p>##Understanding Markov Chains</p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/venn.png alt=venn></p>
+<h2 id=understanding-markov-chains>Understanding Markov Chains</h2>
 <p>Markov chains have been covered to death by people much smarter than me, but a quick explanation:</p>
 <ol>
 <li>There are two <strong>states</strong> in a Markov chain: what happens now, and what can happen next.</li>
@@ -98,7 +98,7 @@ Aug 8 2015
 <p>If you made a Markov chain model of a baby&rsquo;s behavior, you might include &ldquo;playing,&rdquo; &ldquo;eating&rdquo;, &ldquo;sleeping,&rdquo; and &ldquo;crying&rdquo; as states, which together with other behaviors could form a &lsquo;state space&rsquo;: a list of all possible states. In addition, on top of the state space, a Markov chain tells you the probability of hopping, or &ldquo;transitioning,&rdquo; from one state to any other state&mdash;e.g., the chance that a baby currently playing will fall asleep in the next five minutes without crying first.</p>
 </blockquote>
 <p>Here&rsquo;s a <a href="http://www.marcusgraf.com/?p=410">similar graphical example of a person&rsquo;s morning routine</a> that I also like a lot:</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/mcexample.png alt=image></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/mcexample.png alt=image></p>
 <p>Not all of these things will happen every day (which is why some of the ebooks tweets are so nonsensical), but if you create a <a href=http://veekaybee.github.io/how-big-of-a-sample-size-do-you-need/>large enough sample</a>, it should approximate real life.</p>
 <p>How does this relate to news headlines?</p>
 <p>Given a collection of sentences, how likely are you to have certain groups of words occur together before going to the next word? The more likely you are, aka, the more frequently certain tuples of words come up, the more &ldquo;real&rdquo; they are, and the more often the system will include them in the construction of new sentences. This frequency of changes is known as the probability of the transition of the state.</p>
@@ -151,7 +151,7 @@ Lisp for the Web, Part III
 Hints on Programming Language Design (1973) [pdf]
 Programming the Quantum Future
 </code></pre>
-<p>##Generating the chains</p>
+<h2 id=generating-the-chains>Generating the chains</h2>
 <p>There are tons of Python libraries <a href=http://martin-thoma.com/python-markov-chain-packages/>for Markov chains</a>. There is also a pretty good explanation <a href=http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/>here</a>.</p>
 <p>The two best sites, however, were this one, which had <a href=https://pythonadventures.wordpress.com/2014/01/23/generating-pseudo-random-text-using-markov-chains/>really nicely written code</a>, and <a href=https://gist.github.com/grantslatton/7694811>this one</a>, which specifically dealt with scraping HN (although in a different way than I did it.)</p>
 <p>I started with the Python adventures link, and got as far as the <code>build_dict</code> function when my imports started breaking. I had, stupidly, decided not to use Python 3 because I have Anaconda installed (for IPython notebooks) and all my Python instances aren&rsquo;t virtualenv-ed yet, meaning it&rsquo;s easier to just work with 2.7 for now until I get them all set up (Sorry, Guido.)</p>

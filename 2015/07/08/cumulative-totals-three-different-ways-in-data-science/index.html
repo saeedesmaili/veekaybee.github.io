@@ -61,10 +61,28 @@ Jul 7 2015
 <p>Something people often ask of data scientists (or analysts or engineers or what have you) is to just find out how many total customers the company has from the very beginning on a cumulative basis. Often product heads like to see this to figure out if their sexy new product is showing that legendary <a href=http://lunarmobiscuit.com/the-hockey-stick/>hockey stick growth</a>.</p>
 <p>Often times, this data is only available at a granular level (i.e. you have a base number and the adds every month.) For example, let&rsquo;s say we want to find out how many total employees each of these Silicon Valley Companies have in any given month. Are they growing as quickly as Hooli?</p>
 <p>Here&rsquo;s the CSV file you&rsquo;re given to work with: (also available in <a href=https://github.com/veekaybee/cumtotal>the associated GitHub repo</a> for all the code in this post.)</p>
-<pre><code>Company	Month	New Employees	Hooli	    14-Jan	 123,456	Hooli	    14-Feb	   1,434	Hooli	    14-Mar	   2,455	Pied Piper	14-Jan	       1	Pied Piper	14-Feb	       2	Pied Piper	14-Mar	       2	Raviga	    14-Jan	      50	Raviga	    14-Feb	      -2	Raviga	    14-Mar	      17
+<pre><code>Company	Month	New Employees
+Hooli	    14-Jan	 123,456
+Hooli	    14-Feb	   1,434
+Hooli	    14-Mar	   2,455
+Pied Piper	14-Jan	       1
+Pied Piper	14-Feb	       2
+Pied Piper	14-Mar	       2
+Raviga	    14-Jan	      50
+Raviga	    14-Feb	      -2
+Raviga	    14-Mar	      17
 </code></pre>
 <p>But what we really want is this:</p>
-<pre><code>Company	Month	New Employees	Hooli	    14-Jan	 123,456	Hooli	    14-Feb	 124,890	Hooli	    14-Mar	 127,345	Pied Piper	14-Jan	       1	Pied Piper	14-Feb	       3	Pied Piper	14-Mar	       5	Raviga	    14-Jan	      50	Raviga	    14-Feb	      48	Raviga	    14-Mar	      65
+<pre><code>Company	Month	New Employees
+Hooli	    14-Jan	 123,456
+Hooli	    14-Feb	 124,890
+Hooli	    14-Mar	 127,345
+Pied Piper	14-Jan	       1
+Pied Piper	14-Feb	       3
+Pied Piper	14-Mar	       5
+Raviga	    14-Jan	      50
+Raviga	    14-Feb	      48
+Raviga	    14-Mar	      65
 </code></pre>
 <p>What I often want to do is create a cumulative total, by month and by company. In Excel, this is super-easy. Just add a new column and add the previous row&rsquo;s values to it. I&rsquo;ve shown the formula view:</p>
 <p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/exceltot.png alt=Total></p>
