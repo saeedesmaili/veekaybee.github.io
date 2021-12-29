@@ -57,7 +57,7 @@ Feb 2 2017
 </i>
 </p>
 <content>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/winnowers.jpg alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/winnowers.jpg alt></p>
 <p><strong>Courbet, The Winnowers</strong></p>
 <p>TL;DR: Facebook collects data about you in hundreds of ways, across numerous channels. It&rsquo;s very hard to opt out, but by reading about what they collect, you can understand the risks of the platform and choose to be more restrictive with your Facebook usage.</p>
 <h2 id=translations>Translations</h2>
@@ -97,12 +97,12 @@ Feb 2 2017
 <p>To understand how Facebook data collection works, I drew a (very, very) simplified diagram. The user enters data into the UI (the application). This is the front end.</p>
 <p>The data is then collected into Facebook&rsquo;s database (of which they have many.) This is the backend.</p>
 <p>The data that users see in the front-end is a subset of the backend data.</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/facebookui.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/facebookui.png alt></p>
 <p>If you&rsquo;re interested in more of the technical specs, there are lots of architecture diagrams on the googles. Facebook is at the cutting edge of working with big data, and their stack includes <a href=https://www.quora.com/What-is-Facebooks-architecture-6>Hive, Hadoop, HBase, BigPipe, MySQL, Memcached, Thrift,</a> and much, much more. All of this is housed in lots of massive data centers, such as one in <a href=https://www.facebook.com/PrinevilleDataCenter/>Prineville, Oregon</a>.</p>
 <h1 id=what-does-facebook-know-before-you-post>What does Facebook know before you post?</h1>
 <p>Facebook data collection potentially begins before you press &ldquo;POST&rdquo;. As you are crafting your message, <a href=http://www.slate.com/articles/technology/future_tense/2013/12/facebook_self_censorship_what_happens_to_the_posts_you_don_t_publish.html>Facebook collects your keystrokes</a>.</p>
 <p>Facebook <a href=http://www.aaai.org/ocs/index.php/ICWSM/ICWSM13/paper/viewFile/6093/6350>has previously used to use this data to study self-censorship</a> (PDF.)</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/prepost.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/prepost.png alt></p>
 <p>The researchers write,</p>
 <blockquote>
 <p>We report results from an exploratory analysis examining “last-minute” self-censorship, or content that is filtered after being written, on Facebook. We collected data from 3.9 million users over 17 days and associate self-censorship behavior
@@ -110,12 +110,12 @@ with features describing users, their social graph, and the interactions between
 </blockquote>
 <p>Meaning, that if you posted something like, &ldquo;I just HATE my boss. He drives me NUTS,&rdquo; and at the last minute demurred and wrote something like, &ldquo;Man, work is crazy right now,&rdquo; Facebook still knows what you typed before you hit delete.</p>
 <p>Here are the data points they used to conduct their study:</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/prethought.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/prethought.png alt></p>
 <p>Something of interest here is: deleted posts, deleted comments, and deleted checkins. Just like there&rsquo;s no guarantee that things you didn&rsquo;t write won&rsquo;t be stored, there&rsquo;s no guarantee that,if you delete data, the data is actually deleted.</p>
 <p>So, even if you delete a post, Facebook keeps track of that post. Facebook keeps track of the metadata, or the data about your data. For example, the data of a phone call is what you actually talked about. The metadata is when you called, where you called from, how long you called for, etc.</p>
 <p>For Facebook, metadata is just as important as real data, and it uses that data to make extrapolations about who you are. Using Developer Tools on Chrome, it&rsquo;s relatively easy to see the plethora of data passed to Facebook from your client to their backend via xhr. I&rsquo;m not a front-end ninja (but would actually love to talk to one to see what else we could pull), but from
 one image, you can see that facebook is tracking the time you spend doing &mldr;something? Not clear what, but it probably figures into time spent on the site, <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html?_r=0">which Facebook reports out</a>.</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/xhr-fb.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/xhr-fb.png alt></p>
 <p>Incidentally, this is true for account deletions, as well.</p>
 <p>Since Facebook has so many systems and so many places where data can co-mingle, as a <a href=https://www.quora.com/When-you-permanently-delete-your-Facebook-account-what-happens-to-your-information>former Facebook consultant writes</a>,</p>
 <blockquote>
@@ -136,7 +136,7 @@ one image, you can see that facebook is tracking the time you spend doing &mldr;
 <li>Every single device I&rsquo;ve ever logged in from</li>
 </ul>
 <p>And, which ads I would be interested in. This is not something I put in myself. This is something Facebook generated algorithmically based on every single thing I&rsquo;ve posted:</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/ads.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/ads.png alt></p>
 <p>But we&rsquo;ll get to that in the advertising section.</p>
 <p>In addition to the data and metadata, Facebook also tracks intent. One of the ways it does this has already been explored: unposted statuses. Another is <a href=https://techcrunch.com/2016/08/10/360-storytelling/>heatmap tracking</a> of engagement during videos.</p>
 <p>In addition to everything it knows about you, it also knows everything about your friendships. All of this is to say, Facebook knows quite a bit about you, even if you don&rsquo;t flesh out your profile or actively post to the site.</p>
@@ -177,7 +177,7 @@ one image, you can see that facebook is tracking the time you spend doing &mldr;
 <blockquote>
 <p>Facebook encourages users to &ldquo;tag&rdquo; people in photographs they upload in their personal posts and the social network stores the collected information. The company uses a program it calls DeepFace to match other photos of a person.</p>
 </blockquote>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/selfie.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/selfie.png alt></p>
 <p>This program, called DeepFace, is a fantastic way to get more accurate tags. This is also a fantastic way to violate someone&rsquo;s privacy. For example, what if you don&rsquo;t want to be tagged? Like, if you&rsquo;re at a government protest? Or, even, simply, if you went to a concert with one friend instead of the other and didn&rsquo;t want to let one know?</p>
 <p>Unfortunately, privacy of movement soon won&rsquo;t be an option. Facebook is working on ways to <a href=http://fortune.com/2015/06/23/facebook-facial-recognition/>identify people hidden in pictures.</a> The Facebook <a href=https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf>paper on DeepFace notes</a> that, &ldquo;The social and cultural implications of face recognition technologies are far reaching&rdquo;, and yet does not at all talk about the possible privacy dangers with having your face tagged, <a href=http://spectrum.ieee.org/biomedical/imaging/facebooks-face-recognition-tech-goes-on-trial>for example</a>,</p>
 <blockquote>
@@ -210,7 +210,7 @@ one image, you can see that facebook is tracking the time you spend doing &mldr;
 <p>Location, Age, Generation, Gender, Language, Education level, Field of study, School, Ethnic affinity, Income and net worth, Home ownership and type, Home value, Property size, Square footage of home, Year home was built, Household composition.</p>
 <p>How does Facebook know this? By making <a href=https://www.quora.com/How-accurate-are-income-levels-in-Facebook-ad-targeting-and-how-does-Facebook-gather-this-information>some assumptions about you</a> based on the data it knows and what it gets from Experian and the like.</p>
 <p>This data can then be used to target Facebook users in the form of ads. The kinds of targeting you can do on Facebook tells you a lot about the data they keep behind the scenes. For example, you can not only target by location/age/gender/language, you can also do hobbies and life stages (i.e. just engaged, engaged 6 months ago, children in early school age). It&rsquo;s possible to target someone this narrowly and still it have reach a certain number of people (in my example, it was 100-200).</p>
-<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/images/targeted.png alt></p>
+<p><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/targeted.png alt></p>
 <p>This data can then be resold downstream, where it&rsquo;s blended with other data that exists about you through credit cards and other marketing sources, to create sites <a href=http://www.familytreenow.com/>like this</a> that will try to build out a full profile of you. There is no easy way to get out of this, because once data is created, <a href=http://idlewords.com/talks/haunted_by_data.htm>it&rsquo;s much harder to delete.</a> This is why one of the primary concerns of privacy activists is getting companies to bulk-delete data after a certain period.</p>
 <p>Facebook also has the right to use your, and <a href="https://www.facebook.com/help/116356655118482?helpref=related">your child&rsquo;s if they&rsquo;re under 18, pictures in ads</a>.</p>
 <h1 id=what-data-does-facebook-give-to-the-government>What data does Facebook give to the government?</h1>
