@@ -22,7 +22,7 @@
 <meta itemprop=name content="Migrating to Hugo">
 <meta itemprop=description content="I swore I'd never switch static site generators again"><meta itemprop=datePublished content="2022-01-08T00:00:00+00:00">
 <meta itemprop=dateModified content="2022-01-08T00:00:00+00:00">
-<meta itemprop=wordCount content="668"><meta itemprop=image content="https://veekaybee.github.io/images/logo.png">
+<meta itemprop=wordCount content="691"><meta itemprop=image content="https://veekaybee.github.io/images/logo.png">
 <meta itemprop=keywords content>
 <meta name=referrer content="no-referrer-when-downgrade">
 <style>body{font-family:Verdana,sans-serif;margin:auto;padding:20px;max-width:720px;text-align:left;background-color:#fff;word-wrap:break-word;overflow-wrap:break-word;line-height:1.5;color:#444}h1,h2,h3,h4,h5,h6,strong,b{color:#222}a{color:#3273dc}.title{text-decoration:none;border:0}.title span{font-weight:400}nav a{margin-right:10px}textarea{width:100%;font-size:16px}input{font-size:16px}content{line-height:1.6}table{width:100%}img{max-width:100%}code{padding:2px 5px;background-color:#f2f2f2}pre code{color:#222;display:block;padding:20px;white-space:pre-wrap;font-size:14px}div.highlight pre{background-color:initial;color:initial}div.highlight code{background-color:unset;color:unset}blockquote{border-left:1px solid #999;color:#222;padding-left:20px;font-style:italic}footer{padding:25px;text-align:center}.helptext{color:#777;font-size:small}.errorlist{color:#eba613;font-size:small}ul.blog-posts{list-style-type:none;padding:unset}ul.blog-posts li{display:flex}ul.blog-posts li span{flex:0 0 130px}ul.blog-posts li a:visited{color:#8b6fcb}@media(prefers-color-scheme:dark){body{background-color:#333;color:#ddd}h1,h2,h3,h4,h5,h6,strong,b{color:#eee}a{color:#8cc2dd}code{background-color:#777}pre code{color:#ddd}blockquote{color:#ccc}textarea,input{background-color:#252525;color:#ddd}.helptext{color:#aaa}}</style>
@@ -76,10 +76,10 @@ Jan 1 2022
 <p>I also spent some time playing around with deployment through GitHub actions, which Jekyll with GitPages did behind the scenes for me, and got that to work correctly, which has been nice. I used to never know when the site was done building, but now I can check minute by minute what&rsquo;s going on and have fine-grained control over the inevitable build errors.</p>
 <h2 id=my-current-workflow>My current workflow</h2>
 <p>Right now, my workflow is this:</p>
-<figure><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/hugo_workflow.png width=300px>
+<figure><img src=https://raw.githubusercontent.com/veekaybee/veekaybee.github.io/master/static/images/hugo_workflow.png width=600px>
 </figure>
 <ol>
-<li>I write the post in VS Code, or if I&rsquo;m in a hurry, using GitHub spaces in the browser</li>
+<li>I write the post in VS Code, or if I&rsquo;m in a hurry, using GitHub spaces in the browser. This is also a really easy way to fix typos/change text after I post, which I usually do end up doing almost immediately.</li>
 <li>I commit and push to the <code>main</code> branch</li>
 <li>GitHub actions builds the site in main and clones to the <code>gh-pages</code>, which is where it gets served to the web from (this requires a little tweaking in the GitHub repo settings)</li>
 <li>The site is up, and Route53 serves it to my domain.</li>
